@@ -26,11 +26,10 @@ export default function Marketplace() {
 
 
 
-  const handleOnSubmit = (event) => {
-    event.preventDefault();
+  const handleOnSubmit = () => {
     const data ={
-        "team" : ourTeam,
-        "opposition" : thereTeam
+        "team" : value,
+        "opposition" : value2
     }
     console.log(data);
     axios

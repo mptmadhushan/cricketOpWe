@@ -32,14 +32,14 @@ export default function Marketplace() {
   const opt = [
     'home','away','nutral'
   ];
-  const handleOnSubmit = (event) => {
-    event.preventDefault();
+  const handleOnSubmit = () => {
     const data ={
     "venue" : value,
     "Temp" : temp,
     "Humidity" : hum,
     "Wind" : wind
 }
+    console.log("🚀 ~ file: index.jsx:42 ~ handleOnSubmit ~ data:", data)
     // console.log(thereTeam);
     axios
       .post(
