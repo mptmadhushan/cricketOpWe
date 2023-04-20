@@ -15,6 +15,8 @@ export default function Marketplace() {
   // Chakra Color Mode
   const textColor = useColorModeValue('secondaryGray.900', 'white')
   const textColorBrand = useColorModeValue('brand.500', 'white')
+  const [ourTeam, setOurTeam] = React.useState(null);
+  const [thereTeam, setThereTeam] = React.useState(null);
 
   const [respo, setRespo] = React.useState({
     alert: true,
@@ -24,66 +26,45 @@ export default function Marketplace() {
   const MINUTE_MS = 6000
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      capture()
-    }, MINUTE_MS)
-    return () => clearInterval(interval)
+    
   }, [])
-  const webcamRef = React.useRef(null)
-  const capture = React.useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot()
-    fetch(imageSrc)
-      .then(res => res.blob())
-      .then(blob => {
-        const file = new File([blob], 'File name', { type: 'image/png' })
-        console.log('🚀 ~ file: index.js ~ line 84 ~ .then ~ file', file)
-        setSelectedFile(file)
-        handleSubmission(file)
-      })
-  }, [webcamRef])
-
-  const videoConstraints = {
-    width: 1280,
-    height: 720,
-    facingMode: 'user',
-  }
-  const [selectedFile, setSelectedFile] = React.useState()
-
-  const changeHandler = event => {
-    setSelectedFile(event.target.files[0])
-  }
-
-  const handleSubmission = file => {
-    const formData = new FormData()
-
-    formData.append('image', file)
-    // formData.append("image", selectedFile);
-
-    axios
-      .post('http://ec2-54-242-87-59.compute-1.amazonaws.com:8000/api/v1.0/mask-predictions/', formData)
-      .then(res => {
-        console.log(res)
-        console.log(res.data)
-        setRespo(res.data)
-      })
-  }
-  const handleSubmissionFil = () => {
-    const formData = new FormData()
-
-    // formData.append("image", file);
-    formData.append('image', selectedFile)
-
-    axios
-      .post('http://ec2-54-242-87-59.compute-1.amazonaws.com:8000/api/v1.0/mask-predictions/', formData)
-      .then(res => {
-        console.log(res)
-        console.log(res.data)
-        setRespo(res.data)
-      })
-  }
+  const handleChange1 = (selectedOption) => {
+    setOurTeam(selectedOption);
+    console.log(`Option selected:`, selectedOption);
+  };
+  const handleChange2 = (selectedOption) => {
+    setThereTeam(selectedOption);
+    console.log(`Option selected:`, selectedOption);
+  };
   const people = [
     'home','away','nutral'
   ];
+  const options = [
+    { value: "blues", label: "Blues" },
+    { value: "rock", label: "Rock" },
+    { value: "jazz", label: "Jazz" },
+    { value: "orchestra", label: "Orchestra" },
+  ];
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    console.log(thereTeam);
+    axios
+      .post(
+        "http://ec2-13-229-183-94.ap-southeast-1.compute.amazonaws.com:5006/qna",
+        {
+          question:
+          thereTeam,
+        }
+      )
+      .then((response) => {
+        console.log(
+          "🚀 ~ file: testimonials.jsx:15 ~ .then ~ response:",
+          response
+        );
+        
+        // setResponse(response.data);
+      });
+  };
   return (
     <Box pt={{ base: '180px', md: '80px', xl: '80px' }}>
       {/* Main Fields */}
@@ -97,6 +78,7 @@ export default function Marketplace() {
           <Card align="center" direction="column" w="50%">
           <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">Select your team</Text>
             < Select
+            onChange={handleChange1}
     id="balance"
     variant="outline"
     mt="5px"
@@ -108,6 +90,8 @@ export default function Marketplace() {
   { people.map(person =>  <option value="usd">{person}</option>)}
    
   </Select>
+  <Select options={options} onChange={handleChange1} autoFocus={true} />
+
             <Box h="240px" mt="auto"></Box>
           </Card>
           <Card align="center" direction="column" w="50%">
@@ -128,7 +112,9 @@ export default function Marketplace() {
   </Select>
             <Box h="240px" mt="auto"></Box>
           </Card>
-
+          <div className="mt-4">
+          {ourTeam && <>You've selected {ourTeam.value}</>}
+        </div>
        </Flex>
         
       </Grid>
@@ -139,7 +125,7 @@ export default function Marketplace() {
             py="15px"
             h="50px"
             borderRadius="16px"
-   
+            onClick={handleOnSubmit}
             fontWeight="500"
 
           >

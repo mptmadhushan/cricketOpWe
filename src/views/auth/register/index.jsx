@@ -108,7 +108,7 @@ function SignIn() {
     />
   );
   return (
-    <DefaultAuth illustrationBackground={illustration} image={illustration}>
+    <DefaultAuth>
       <Flex
         maxW={{ base: "100%", md: "max-content" }}
         w="100%"
@@ -280,49 +280,7 @@ function SignIn() {
             </Text>
           </Flex>
         </Flex>{" "}
-        <Flex
-          zIndex="2"
-          direction="column"
-          w={{ base: "100%", md: "420px" }}
-          maxW="100%"
-          background="transparent"
-          borderRadius="15px"
-          mx={{ base: "auto", lg: "unset" }}
-          me="auto"
-          mb={{ base: "20px", md: "auto" }}
-          ml={{ base: "20px", md: "auto" }}
-        >
-          <div style={{ marginLeft: "20px" }}>
-            <Heading color={textColor} fontSize="36px" mb="10px">
-              Enter Customer Id
-            </Heading>
-            <div ref={qrRef}>{qrcode}</div>
-            <div className="input__group">
-              <form onSubmit={downloadQRCode}>
-                <Input
-                  type="text"
-                  mb="10px"
-                  mt="10px"
-                  value={url}
-                  onChange={qrCodeEncoder}
-                  placeholder="user id"
-                />
-                <Button
-                  fontSize="sm"
-                  variant="brand"
-                  fontWeight="500"
-                  w="100%"
-                  h="50"
-                  type="submit"
-                  disabled={!url}
-                  mb="24px"
-                >
-                  Download QR code
-                </Button>
-              </form>
-            </div>
-          </div>
-        </Flex>
+       
       </Flex>
     </DefaultAuth>
   );
