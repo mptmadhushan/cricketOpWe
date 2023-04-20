@@ -36,7 +36,8 @@ export default function Marketplace() {
       .post(
         "http://127.0.0.1:5000/winner",
         {
-          data
+          "team" : value,
+          "opposition" : value2
         }
       )
       .then((response) => {

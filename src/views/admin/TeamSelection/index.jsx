@@ -45,7 +45,10 @@ export default function Marketplace() {
       .post(
         "http://127.0.0.1:5000/team",
         {
-         data
+          "venue" : value,
+          "Temp" : temp,
+          "Humidity" : hum,
+          "Wind" : wind
         }
       )
       .then((response) => {
