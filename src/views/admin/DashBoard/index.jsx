@@ -19,23 +19,12 @@ export default function Marketplace() {
   const [thereTeam, setThereTeam] = React.useState(null);
 
   const [respo, setRespo] = React.useState()
-  const MINUTE_MS = 6000
 
   useEffect(() => {
     
   }, [])
-  const handleChange1 = (selectedOption) => {
-    console.log('hello')
-    setOurTeam(selectedOption);
-    console.log(`Option selected:`, selectedOption);
-  };
-  const handleChange2 = (selectedOption) => {
-    setThereTeam(selectedOption);
-    console.log(`Option selected:`, selectedOption);
-  };
-  const people = [
-    'home','away','nutral'
-  ];
+
+
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
@@ -46,7 +35,7 @@ export default function Marketplace() {
     console.log(data);
     axios
       .post(
-        "http://ec2-13-229-183-94.ap-southeast-1.compute.amazonaws.com:5006/qna",
+        "http://127.0.0.1:5000/winner",
         {
           data
         }
@@ -149,7 +138,7 @@ export default function Marketplace() {
             py="15px"
             h="50px"
             borderRadius="16px"
-            onClick={handleOnSubmit}
+            onClick={()=>handleOnSubmit()}
             fontWeight="500"
 
           >

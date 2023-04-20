@@ -43,7 +43,7 @@ export default function Marketplace() {
     // console.log(thereTeam);
     axios
       .post(
-        "http://ec2-13-229-183-94.ap-southeast-1.compute.amazonaws.com:5006/qna",
+        "http://127.0.0.1:5000/team",
         {
          data
         }
