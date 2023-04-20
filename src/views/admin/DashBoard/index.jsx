@@ -119,7 +119,7 @@ export default function Marketplace() {
             </Text>
             <Select value={value2} onChange={(e) => setValue2(e.currentTarget.value)}>
         {team2.map((character) => (
-          <option key={character.value2} value={character.value2}>
+          <option key={character.value2} value={character.value}>
             {character.label}
           </option>
         ))}
