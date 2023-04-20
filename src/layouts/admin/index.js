@@ -138,7 +138,7 @@ export default function Dashboard(props) {
             <Box>
               <Navbar
                 onOpen={onOpen}
-                logoText={"SuperMarket UI Dashboard PRO"}
+                logoText={"Cricket UI Dashboard PRO"}
                 brandText={getActiveRoute(routes)}
                 secondary={getActiveNavbar(routes)}
                 message={getActiveNavbarText(routes)}
@@ -158,7 +158,7 @@ export default function Dashboard(props) {
             >
               <Switch>
                 {getRoutes(routes)}
-                <Redirect from="/" to="/admin/face-mask" />
+                <Redirect from="/" to="/admin/dash-cric" />
               </Switch>
             </Box>
           ) : null}

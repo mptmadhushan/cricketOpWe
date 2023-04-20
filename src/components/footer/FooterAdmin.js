@@ -40,7 +40,7 @@ export default function Footer() {
         {" "}
         &copy; {1900 + new Date().getYear()}
         <Text as="span" fontWeight="500" ms="4px">
-          SuperMarket. All Rights Reserved. Made with love
+          Cricket. All Rights Reserved. Made with love
         </Text>
       </Text> */}
       <List display="flex">

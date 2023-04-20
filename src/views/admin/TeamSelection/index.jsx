@@ -17,34 +17,47 @@ export default function Marketplace() {
   const textColor = useColorModeValue('secondaryGray.900', 'white')
   const textColorBrand = useColorModeValue('brand.500', 'white')
 
-  const [respo, setRespo] = React.useState({
-    alert: true,
-    predictions: 'with_mask',
-    detail: 'Scanning.!',
-  })
+  const [respo, setRespo] = React.useState(['home','away','nutral'])
   const MINUTE_MS = 6000
 
   useEffect(() => {
 
   }, [])
  
-  const [selectedFile, setSelectedFile] = React.useState()
-  const [userName, setUserName] = React.useState("");
+  const [temp, setTemp] = React.useState()
+  const [wind, setWind] = React.useState("");
+  const [hum, setHum] = React.useState("");
+  const [value, setValue] = React.useState("LK");
  
-  const people = [
+  const opt = [
     'home','away','nutral'
   ];
-  const listItems = people.map(person => <Select
-    id="balance"
-    variant="outline"
-    mt="5px"
-    width="30%"
-    me="0px"
-    defaultValue="usd"
-  >
-  { people.map(person =>  <option value="usd">{person}</option>)}
-   
-  </Select>);
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    const data ={
+    "venue" : value,
+    "Temp" : temp,
+    "Humidity" : hum,
+    "Wind" : wind
+}
+    // console.log(thereTeam);
+    axios
+      .post(
+        "http://ec2-13-229-183-94.ap-southeast-1.compute.amazonaws.com:5006/qna",
+        {
+         data
+        }
+      )
+      .then((response) => {
+        console.log(
+          "🚀 ~ file: testimonials.jsx:15 ~ .then ~ response:",
+          response
+        );
+        setRespo(response)
+        
+        // setResponse(response.data);
+      });
+  };
   return (
     <Box pt={{ base: '180px', md: '80px', xl: '80px' }}>
       {/* Main Fields */}
@@ -66,48 +79,65 @@ export default function Marketplace() {
         display={{ base: 'block', xl: 'grid' }}
       >
      <p>Select match venue</p>
-            < Select
-    id="balance"
-    variant="outline"
-    mt="5px"
-    width="30%"
-    me="0px"
-    defaultValue="usd"
-  >
-  { people.map(person =>  <option value="usd">{person}</option>)}
-   
-  </Select>
+     <Flex flexDirection="row" gridArea={{  }}>
+  <Select width={'200px'} value={value} onChange={(e) => setValue(e.currentTarget.value)}>
+        {opt.map((character) => (
+          <option key={character} value={character}>
+            {character}
+          </option>
+        ))}
+      </Select>
    <Input
                 isRequired={true}
                 fontSize="sm"
-                placeholder="temperature"
+                placeholder="Temperature"
                 mb="24px"
                 size="lg"
                 width="200px"
-                onChange={(e) => setUserName(e.target.value)}
+                onChange={(e) => setTemp(e.target.value)}
                 
                 variant="auth"
               /> <Input
                 isRequired={true}
                 fontSize="sm"
-                placeholder="wind"
+                placeholder="Wind"
                 mb="24px"
                 size="lg"
                 width="200px"
-                onChange={(e) => setUserName(e.target.value)}
+                onChange={(e) => setWind(e.target.value)}
                 
                 variant="auth"
               /> <Input
                 isRequired={true}
                 fontSize="sm"
-                placeholder="humidity"
+                placeholder="Humidity"
                 mb="24px"
                 size="lg"
                 width="200px"
-                onChange={(e) => setUserName(e.target.value)}
+                onChange={(e) => setHum(e.target.value)}
                 
                 variant="auth"
               />
+              </Flex>
+               <Button
+            fontSize="sm"
+            me="0px"
+            mb="26px"
+            py="15px"
+            h="50px"
+            borderRadius="16px"
+            onClick={()=>handleOnSubmit()}
+            fontWeight="500"
+
+          >
+            
+           SUBMIT
+          </Button> 
+          {respo.map((character) => (
+          <Text me='34mx' fontSize='sm' fontWeight='500' >
+            -{character}
+          </Text>
+        ))}
       </Grid>
       
       <Grid

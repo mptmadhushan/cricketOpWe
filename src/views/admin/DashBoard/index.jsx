@@ -18,17 +18,14 @@ export default function Marketplace() {
   const [ourTeam, setOurTeam] = React.useState(null);
   const [thereTeam, setThereTeam] = React.useState(null);
 
-  const [respo, setRespo] = React.useState({
-    alert: true,
-    predictions: 'with_mask',
-    detail: 'Scanning.!',
-  })
+  const [respo, setRespo] = React.useState()
   const MINUTE_MS = 6000
 
   useEffect(() => {
     
   }, [])
   const handleChange1 = (selectedOption) => {
+    console.log('hello')
     setOurTeam(selectedOption);
     console.log(`Option selected:`, selectedOption);
   };
@@ -39,21 +36,19 @@ export default function Marketplace() {
   const people = [
     'home','away','nutral'
   ];
-  const options = [
-    { value: "blues", label: "Blues" },
-    { value: "rock", label: "Rock" },
-    { value: "jazz", label: "Jazz" },
-    { value: "orchestra", label: "Orchestra" },
-  ];
+
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log(thereTeam);
+    const data ={
+        "team" : ourTeam,
+        "opposition" : thereTeam
+    }
+    console.log(data);
     axios
       .post(
         "http://ec2-13-229-183-94.ap-southeast-1.compute.amazonaws.com:5006/qna",
         {
-          question:
-          thereTeam,
+          data
         }
       )
       .then((response) => {
@@ -61,10 +56,52 @@ export default function Marketplace() {
           "🚀 ~ file: testimonials.jsx:15 ~ .then ~ response:",
           response
         );
+        setRespo(response)
         
         // setResponse(response.data);
       });
   };
+
+  const [team, setTeam] = React.useState([
+    {
+      label: "Sri Lanka ...",
+      value: "SL"
+    },
+    {
+      label: "Bangaladesh",
+      value: "BAN"
+    },
+    { label: "India", value: "IND" },
+    { label: "Australia", value: "AUS" },
+    { label: "Pakistan", value: "PAK" },
+    { label: "New Zealand", value: "NZ" },
+    { label: "West Indies", value: "WI" },
+    { label: "Kenya", value: "KENYA" },
+  ]);;
+  const [team2, tetTeam2] = React.useState([
+    {
+      label: "Sri Lanka ...",
+      value: "SL"
+    },
+    {
+      label: "Bangaladesh",
+      value: "BAN"
+    },
+    { label: "India", value: "IND" },
+    { label: "Australia", value: "AUS" },
+    { label: "Pakistan", value: "PAK" },
+    { label: "New Zealand", value: "NZ" },
+    { label: "West Indies", value: "WI" },
+    { label: "Kenya", value: "KENYA" },
+  ]);;
+
+  // set dropdown value and have initial of none
+  const [value, setValue] = React.useState("LK");
+  const [value2, setValue2] = React.useState("LK");
+  const [resp, setResp] = React.useState("");
+
+  const test = () => console.log("select value", value,value2);
+
   return (
     <Box pt={{ base: '180px', md: '80px', xl: '80px' }}>
       {/* Main Fields */}
@@ -77,47 +114,34 @@ export default function Marketplace() {
         <Flex gridArea={{ xl: '1 / 1 / 2 / 3', '2xl': '1 / 1 / 2 / 2Flex flexDirection="row"' }}>
           <Card align="center" direction="column" w="50%">
           <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">Select your team</Text>
-            < Select
-            onChange={handleChange1}
-    id="balance"
-    variant="outline"
-    mt="5px"
-    width="100%"
-    me="0px"
-    defaultValue="usd"
-  >
-    
-  { people.map(person =>  <option value="usd">{person}</option>)}
-   
-  </Select>
-  <Select options={options} onChange={handleChange1} autoFocus={true} />
+          <Select value={value} onChange={(e) => setValue(e.currentTarget.value)}>
+        {team.map((character) => (
+          <option key={character.value} value={character.value}>
+            {character.label}
+          </option>
+        ))}
+      </Select>
 
-            <Box h="240px" mt="auto"></Box>
+            {/* <Box h="240px" mt="auto"></Box> */}
           </Card>
           <Card align="center" direction="column" w="50%">
             <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
-              Select there team
+              Select opposition team
             </Text>
-            < Select
-    id="balance"
-    variant="outline"
-    mt="5px"
-    width="100%"
-    me="0px"
-    defaultValue="usd"
-  >
-    
-  { people.map(person =>  <option value="usd">{person}</option>)}
-   
-  </Select>
-            <Box h="240px" mt="auto"></Box>
+            <Select value={value2} onChange={(e) => setValue2(e.currentTarget.value)}>
+        {team2.map((character) => (
+          <option key={character.value2} value={character.value2}>
+            {character.label}
+          </option>
+        ))}
+      </Select>
+            {/* <Box h="240px" mt="auto"></Box> */}
           </Card>
-          <div className="mt-4">
-          {ourTeam && <>You've selected {ourTeam.value}</>}
-        </div>
+          
        </Flex>
         
       </Grid>
+      <Flex flexDirection="row" gridArea={{  }}>
       <Button
             fontSize="sm"
             me="0px"
@@ -132,6 +156,22 @@ export default function Marketplace() {
             
            SUBMIT
           </Button>
+          <Button
+          disabled
+            fontSize="sm"
+            me="0px"
+            mb="26px"
+            py="15px"
+            h="50px"
+            borderRadius="16px"
+            onClick={handleOnSubmit}
+            fontWeight="500"
+
+          >
+            
+           {resp}
+          </Button>
+          </Flex>
       <Grid
         mb="20px"
         gridTemplateColumns={{ xl: 'repeat(3, 1fr)', '2xl': '1fr 0.46fr' }}

@@ -46,9 +46,9 @@ const routes = [
     component: RegisterCentered,
   },
   {
-    name: "Dashboard",
+    name: "Win Loss Prediction",
     layout: "/admin",
-    path: "/face-mask",
+    path: "/dash-cric",
     icon: (
       <Icon
         as={MdMasks}

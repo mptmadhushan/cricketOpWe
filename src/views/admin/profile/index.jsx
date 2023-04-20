@@ -6,11 +6,11 @@
  |_| |_|\___/|_| \_\___/____\___/|_| \_|  \___/|___|
                                                                                                                                                                                                                                                                                                                                        
 =========================================================
-* SuperMarket UI - v1.1.0
+* Cricket UI - v1.1.0
 =========================================================
 
-* Product Page: https://www.SuperMarket-ui.com/
-* Copyright 2022 SuperMarket UI (https://www.SuperMarket-ui.com/)
+* Product Page: https://www.Cricket-ui.com/
+* Copyright 2022 Cricket UI (https://www.Cricket-ui.com/)
 
 * Designed and Coded by Simmmple
 

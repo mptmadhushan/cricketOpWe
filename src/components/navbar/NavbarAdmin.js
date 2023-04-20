@@ -136,7 +136,7 @@ export default function AdminNavbar(props) {
         <Box ms='auto' w={{ sm: "100%", md: "unset" }}>
           <AdminNavbarLinks
             onOpen={props.onOpen}
-            logoText={props.logoText}
+            // logoText={props.logoText}
             secondary={props.secondary}
             fixed={props.fixed}
             scrolled={scrolled}

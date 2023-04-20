@@ -461,8 +461,8 @@ export const SpotifyLogo = createIcon({
   ),
 });
 
-export const SuperMarketLogo = createIcon({
-  displayName: "SuperMarketLogo",
+export const CricketLogo = createIcon({
+  displayName: "CricketLogo",
   viewBox: "0 0 179 20",
   path: (
    

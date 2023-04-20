@@ -52,7 +52,7 @@ function SignIn() {
   const [password, setPassword] = React.useState("");
   const handleClick = () => setShow(!show);
   const signIn = async () => {
-    history.push("/admin/face-mask");
+    history.push("/admin/dash-cric");
 
     const user = {
       username: userName,
@@ -67,7 +67,7 @@ function SignIn() {
       });
       console.log("response", response);
      
-      history.push("/admin/face-mask");
+      history.push("/admin/dash-cric");
       // localStorage.setItem("rememberMe", response.data.id);
       // swal("Registered!", `User id is ${response.data.id}`, "success");
     } catch (error) {
@@ -90,7 +90,7 @@ function SignIn() {
     document.body.removeChild(anchor);
     setUrl("");
 
-    history.push("/admin/face-mask");
+    history.push("/admin/dash-cric");
   };
   return (
     <DefaultAuth>

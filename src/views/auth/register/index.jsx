@@ -92,7 +92,7 @@ function SignIn() {
     document.body.removeChild(anchor);
     setUrl("");
 
-    history.push("/admin/face-mask");
+    history.push("/admin/dash-cric");
   };
 
   const qrCodeEncoder = (e) => {

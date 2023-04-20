@@ -4,7 +4,7 @@ import React from "react";
 import { Flex, useColorModeValue,Image } from "@chakra-ui/react";
 import logoWhite from "assets/img/auth/logo.png";
 // Custom components
-import { SuperMarketLogo } from "components/icons/Icons";
+import { CricketLogo } from "components/icons/Icons";
 import { HSeparator } from "components/separator/Separator";
 
 export function SidebarBrand() {

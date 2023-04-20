@@ -1,11 +1,11 @@
 [{
-  "name":["SuperMarket UI PRO",false],
+  "name":["Cricket",false],
   "quantity": 2458, 
   "date": "12 Jan 2021",
   "progress": 17.5  
 },
 {
-  "name":["SuperMarket UI Free",true],
+  "name":["Cricket UI Free",true],
   "quantity": 1485, 
   "date": "21 Feb 2021",
   "progress": 10.8  
