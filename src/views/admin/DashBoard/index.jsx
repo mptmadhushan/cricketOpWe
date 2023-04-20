@@ -87,7 +87,6 @@ export default function Marketplace() {
   // set dropdown value and have initial of none
   const [value, setValue] = React.useState("LK");
   const [value2, setValue2] = React.useState("LK");
-  const [resp, setResp] = React.useState("");
 
   const test = () => console.log("select value", value,value2);
 
@@ -158,7 +157,7 @@ export default function Marketplace() {
 
           >
             
-           {resp?.data?.winner}
+           {respo?.data?.winner}
           </Button>
           </Flex>
       <Grid
