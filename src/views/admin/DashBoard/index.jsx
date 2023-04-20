@@ -158,7 +158,7 @@ export default function Marketplace() {
 
           >
             
-           {resp}
+           {resp.data.winner}
           </Button>
           </Flex>
       <Grid
