@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+:root
+{
+    --primary-back:#ffffff;
+}
+
+body
+{
+    background-color: var(--primary-back);
+    font-family: 'Quicksand', sans-serif;
+}
+
+html 
+{
+    overflow-y: hidden;
+}
+.main-body-wrapper
+{
+    height: 100vh;
+    background-color: var(--primary-back);
+}
+
+.side-body-wrapper
+{
+    height: 95vh;
+}
+table tr td, table th
+{
+    
+   padding: 10px;
+   
+}
+
+
+
+
+@media screen and (min-width:600px)
+{
+    .react-calendar__tile--now {
+        background: #81b3ff;
+        
+      }
+      
+      .react-calendar__month-view__weekNumbers .react-calendar__tile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 9pt !important;
+        font-weight: bold;
+      }
+
+
+      .react-calendar {
+        width: auto;
+        max-width: 100%;
+        background-color: #fdfdfd;
+        
+        font-family: Arial, Helvetica, sans-serif;
+        
+      }
+
+      .react-calendar__tile:enabled:hover,
+        .react-calendar__tile:enabled:focus {
+        background-color: #e6e6e6;
+        }
+
+       
+.react-calendar--selectRange .react-calendar__tile--hover {
+    background: rgb(16, 99, 141);
+  }
+  
+
+  .react-calendar__tile {
+    max-width: 100%;
+    padding: 10px;
+    text-align: center;
+    line-height: 10px;
+   
+  }
+
+  .react-calendar__month-view__weekdays__weekday {
+    padding: 10px;
+
+  }
+
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    background-color: #bedcfa;
+  }
+  
+ 
+
+}
+
+
+.table-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: #4a5568;
+    border-radius: 3px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background-color: #f1f5f9;
+  }
+
+
+
+@media (min-width:600px) and (max-width:990px)
+{
+    .react-calendar__tile {
+        max-width: 100%;
+        padding: 10px;
+        text-align: center;
+        line-height: 5px;
+        font-size: 8pt;
+
+        align-items: center;
+        justify-items: center;
+        margin: 0;
+      }
+
+      .react-calendar__navigation button {
+        min-width: 30px;
+        background: none;
+      }
+
+
+      .react-calendar__navigation {
+      
+        font-size: 7pt;
+      }
+
+      
+      
+}
+
+
+@media (min-width:1400px)
+{
+    .side-body-wrapper
+    {
+        width: 15vW;
+    }
+    .main-body-wrapper
+    {
+        width: 85vW;
+    }
+}
