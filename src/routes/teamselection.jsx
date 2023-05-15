@@ -42,69 +42,10 @@ function Teamselection()
                 <div className="panel flex md:flex-col lg:flex-row mb-[80px]">
 
                                 <div className="form-one p-5 w-2/3 md:w-full md:p-2">
-                                    <h3 className="text-blue-500 p-2">Opposition Team</h3>
-                                    <div className="form-one-panel lg:p-5 md:p-2 bg-white rounded-md shadow-md shadow-slate-300">
-                            
-                                        <div className="w-full pr-4 flex columns-2 justify-between">
-                                
-                                            <div className="section-one float-left w-1/2 mx-2">
-                                                <div className="mb-4">
-                                                    <label htmlFor="player1" className="block text-gray-700 font-bold mb-2">Player 1:</label>
-                                                    <input type="text" id="player1" className="w-full border border-gray-400 p-2 rounded-md" />
-                                                </div>
-                                                <div className="mb-4">
-                                                    <label htmlFor="player2" className="block text-gray-700 font-bold mb-2">Player 2:</label>
-                                                    <input type="text" id="player2" className="w-full border border-gray-400 p-2 rounded-md" />
-                                                </div>
-                                                <div className="mb-4">
-                                                    <label htmlFor="player3" className="block text-gray-700 font-bold mb-2">Player 3:</label>
-                                                    <input type="text" id="player3" className="w-full border border-gray-400 p-2 rounded-md" />
-                                                </div>          
-                                                <div className="mb-4">
-                                                    <label htmlFor="player4" className="block text-gray-700 font-bold mb-2">Player 4:</label>
-                                                    <input type="text" id="player4" className="w-full border border-gray-400 p-2 rounded-md" />
-                                                </div>
-                                                <div className="mb-4">
-                                                    <label htmlFor="player5" className="block text-gray-700 font-bold mb-2">Player 5:</label>
-                                                    <input type="text" id="player5" className="w-full border border-gray-400 p-2 rounded-md" />
-                                                </div>
-                                                <div className="mb-4">
-                                                    <label htmlFor="player6" className="block text-gray-700 font-bold mb-2">Player 6:</label>
-                                                    <input type="text" id="player6" className="w-full border border-gray-400 p-2 rounded-md" />
-                                                </div>
-                                            </div>
-
-
-                                            <div className="section-two float-right w-1/2 mx-2">
-                                                <div className="mb-4">
-                                                    <label htmlFor="player7" className="block text-gray-700 font-bold mb-2">Player 7:</label>
-                                                    <input type="text" id="player7" className="w-full border border-gray-400 p-2 rounded-md" />
-                                                </div>
-                                                <div className="mb-4">
-                                                    <label htmlFor="player8" className="block text-gray-700 font-bold mb-2">Player 8:</label>
-                                                    <input type="text" id="player8" className="w-full border border-gray-400 p-2 rounded-md" />
-                                                </div>
-                                                <div className="mb-4">
-                                                    <label htmlFor="player9" className="block text-gray-700 font-bold mb-2">Player 9:</label>
-                                                    <input type="text" id="player9" className="w-full border border-gray-400 p-2 rounded-md" />
-                                                </div>      
-                                                <div className="mb-4">
-                                                    <label htmlFor="player10" className="block text-gray-700 font-bold mb-2">Player 10:</label>
-                                                    <input type="text" id="player10" className="w-full border border-gray-400 p-2 rounded-md" />
-                                                </div>
-                                                <div className="mb-4">
-                                                    <label htmlFor="player11" className="block text-gray-700 font-bold mb-2">Player 11:</label>
-                                                    <input type="text" id="player11" className="w-full border border-gray-400 p-2 rounded-md" />
-                                                </div>      
                                     
-                                            </div>                        
+                                    <div className="form-one-panel lg:p-5 md:p-2 bg-white rounded-md ">
                             
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div className="contidion-panel p-5 flex flex-col">
+                                    <div className="contidion-panel p-5 flex flex-col">
                                     <form onSubmit={handleSubmit} >
                                     <div className='sub-panel mb-10'>
                                         <h3 className="text-blue-500 p-2">Ground Venue</h3>
@@ -152,13 +93,18 @@ function Teamselection()
                                         
                                     </div>
 
-                                                <div className="w-1/3 mx-auto">
-                                                    <label htmlFor="submit" className="block text-gray-700 font-bold mb-2" ><br/></label>
-                                                    <button type="submit" className='p-3 w-[160px] bg-gradient-to-r from-sky-400 to-blue-500 rounded-full text-white uppercase '>Submit <FontAwesomeIcon icon={faPaperPlane} className='mx-2'/></button>
+                                                <div className="w-1/3 mx-auto mt-10 text-center">
+                                                   
+                                                    <button type="submit" className='p-3 w-[160px] bg-gradient-to-r from-sky-400 to-blue-500 rounded-full text-white uppercase mx-auto'>Submit <FontAwesomeIcon icon={faPaperPlane} className='mx-2'/></button>
                                                 </div>
 
                                     </form>
                                 </div>
+                                    </div>
+                                </div>
+
+
+                                
 
                         
 

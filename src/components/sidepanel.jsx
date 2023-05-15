@@ -38,7 +38,7 @@ function Sidepanel()
                         Home
                     </a>
                     <a
-                        href="#"
+                        href="https://www.espncricinfo.com/live-cricket-score"
                         className={
                         activeLink === "Live Score" ? activeLinkClassName : linkClassName
                         }
@@ -53,7 +53,7 @@ function Sidepanel()
                         Live score
                     </a>
                     <a
-                        href="#"
+                        href="https://www.worldweatheronline.com/cricket.aspx"
                         className={
                         activeLink === "Ground Weather"
                             ? activeLinkClassName
@@ -70,7 +70,7 @@ function Sidepanel()
                         Ground Weather
                     </a>
                     <a
-                        href="#"
+                        href="https://www.espncricinfo.com/rankings/content/page/211270.html"
                         className={
                         activeLink === "Player ODI Rankings"
                             ? activeLinkClassName
@@ -89,7 +89,7 @@ function Sidepanel()
                         Player ODI Rankings
                     </a>
                     <a
-                        href="#"
+                        href="https://www.espncricinfo.com/team"
                         className={
                         activeLink === "Team" ? activeLinkClassName : linkClassName
                         }
